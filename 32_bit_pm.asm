@@ -19,7 +19,7 @@ jmp CODE_SEG: start_protected_mode
 GDT_Start:
     null_descriptor:
         dd 0x0 ; 4 times 00000000
-        dd 0x0 ; 4 times 00000000
+        dd 0x0 ; 4 times 00000000    fffff hex = 4bits = 4 x5 = 20bits
     code_descriptor:
         dw 0xffff
         dw 0x0 ; 16 bits + 
@@ -37,8 +37,8 @@ GDT_Start:
 GDT_End:
 
 GDT_Descriptor:
-    dw GDT_End - GDT_Start - 1  ; size
-    dd GDT_Start                ; start
+    dw GDT_End - GDT_Start - 1  ; size   16 bits
+    dd GDT_Start                ; start   32bits(address)
 
 
 [bits 32]

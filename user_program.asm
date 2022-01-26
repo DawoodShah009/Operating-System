@@ -27,6 +27,4 @@ loop:
     jmp loop 
 
 exit:
-jmp $
-; times (510-($-$$)) db 0x0
-; dw 0xaa55
+jmp 0x00:0x7C20    ; returin control back to the bootloader
